@@ -6,7 +6,8 @@
 
 ## **Project Members**
 
-- List the people a part of this group.
+- Ziyu Wang
+- Aaron Kim
 
 ## **Features**
 
