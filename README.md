@@ -2,8 +2,7 @@
 
 ## **Project Overview**
 
-- Briefly describe the concept of your project.
-
+- This web project lets users submit a "soundtrack of their life" by connecting memories with music.
 ## **Project Members**
 
 - Ziyu Wang
