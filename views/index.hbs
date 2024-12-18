@@ -1,2 +1,12 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+
+{{#each posts}}
+<div class='song'>
+    <h2>{{this.song}}</h2>
+    <p>{{this.memory}}</p>
+    <p>By {{this.authorID}}</p>
+    <p>On {{this.createdAt}}</p>
+</div>
+{{/each}}
