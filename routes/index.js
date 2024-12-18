@@ -19,12 +19,20 @@ router.get('/', async function(req, res, next) {
             as: 'authors'
           }
         },
+        {
+          $lookup: {
+            from: 'comments',
+            foreignField: 'songID',
+            localField: '_id',
+            as: 'comments'
+          }
+        },
         { $sort: { createdAt: -1}}
       ])
       .toArray();
 
 
-    console.log(posts[0].authors);
+    console.log(posts);
 
     res.render('index', { title: 'Memoirs of a Melody', posts: posts });
   } catch (error) {
