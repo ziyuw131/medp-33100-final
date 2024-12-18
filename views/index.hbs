@@ -1,12 +1,25 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
 
+<form id="post_form">
+    <p>
+    Think of a song that has a specific meaning to you.
+    Why did you choose it?
+    Add it!
+    </p>
+    <input type="text" name="song" placeholder="Song Name" />
+    <input type="text" name="memory" placeholder="Describe your memory associated with this song, good or bad..." />
+    <input type="text" name="name" placeholder="Your name" />
+    <input type="submit" value="Add Song" />
+</form>
 
 {{#each posts}}
-<div class='song'>
+<div class='post'>
     <h2>{{this.song}}</h2>
     <p>{{this.memory}}</p>
-    <p>By {{this.authorID}}</p>
+    {{#each this.authors}}
+    <p>By {{this.username}}</p>
+    {{/each}}
     <p>On {{this.createdAt}}</p>
 </div>
 {{/each}}
+

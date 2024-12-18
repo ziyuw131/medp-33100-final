@@ -1,4 +1,3 @@
-
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://ziyuwang131:6N4N70kzdhdTaGAH@cluster0.bi1xd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
