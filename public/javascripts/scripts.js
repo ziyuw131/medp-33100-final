@@ -8,6 +8,27 @@ document.addEventListener('DOMContentLoaded', () => {
       mainContent.style.display = "block"; // Show the main content
     });
     
+    const openPopupButton = document.getElementById("open-popup");
+    const popupModal = document.getElementById("popup-modal");
+    const closePopupButton = document.getElementById("close-popup");
+
+    // Show popup form when the button is clicked
+    openPopupButton.addEventListener("click", () => {
+        popupModal.classList.add("visible");
+    });
+
+    // Close popup form when the close button is clicked
+    closePopupButton.addEventListener("click", () => {
+        popupModal.classList.remove("visible");
+    });
+
+    // Optional: Close popup if the user clicks outside the popup content
+    popupModal.addEventListener("click", (e) => {
+        if (e.target === popupModal) {
+            popupModal.classList.remove("visible");
+        }
+    });
+
     document.querySelector('#post_form')?.addEventListener('submit', (e) => {
         e.preventDefault();
         console.log('Form submitted');

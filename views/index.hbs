@@ -1,52 +1,61 @@
 <div id="intro-screen">
-    <h1>Welcome to the Memory Song Page</h1>
+    <h1>Welcome to Memoirs of a Melody</h1>
     <p>Have a song you enjoy? Share it here!</p>
     <br>
     <p>Click anywhere to start</p>
 </div>
 
 <div id="main-content" style="display: none;">
+    <h1>{{title}}</h1>
 
-<h1>{{title}}</h1>
+    <div class="corner-button-container">
+        <button id="open-popup" class="corner-button">Add a Song</button>
+    </div>
 
-<form id="post_form">
-    <p>
-        Think of a song that has a specific meaning to you.
-        Why did you choose it?
-        Add it!
-    </p>
-    <input type="text" name="song" placeholder="Song Name - Artist" />
-    <input type="text" name="image_url" placeholder="Optional: Image Url" />
-    <input type="text" name="memory" placeholder="Describe your memory associated with this song, good or bad..." />
-    <input type="text" name="name" placeholder="Your name" />
-    <input type="submit" value="Add Song" />
-</form>
-
-<div id="song-container">
-    {{#each posts}}
-        <div class="card" id="{{this._id}}">
-            <img class="image" src="{{this.image_url}}" alt="{{this.song}}" onerror="this.src='images/vinyl.png'">
-            <h2 class="song">{{this.song}}</h2>
-            <p class="memory">{{this.memory}}</p>
-            {{#each this.authors}}
-            {{!-- <p class="author" author_id="{{this._id}}">By {{this.username}}</p> --}}
-            {{/each}}
-            <p class="createdAt">{{this.createdAt}}</p>
-            <h3>Comments</h3>
-            {{#each this.comments}}
-            <p>{{this.content}}</p>
-            {{/each}}
-
-            <form class="comments_form">
-                <input type="text" name="content" placeholder="Say something..." />
-                <input type="submit" value="Submit Comment" />
+    <div id="popup-modal" class="hidden">
+        <div id="popup-content">
+            <form id="post_form">
+                <p>
+                    Think of a song that has a specific meaning to you.
+                    Why did you choose it?
+                    Add it!
+                </p>
+                <input type="text" name="song" placeholder="Song Name - Artist" />
+                <input type="text" name="image_url" placeholder="Optional: Image Url" />
+                <input type="text" name="memory" placeholder="Describe your memory associated with this song, good or bad..." />
+                <input type="text" name="name" placeholder="Your name" />
+                <input type="submit" value="Add Song" />
             </form>
-
-            <button class="edit_button">Edit</button>
-            <button class="delete_button">Delete</button>
-
+            <button id="close-popup" class="close-button">Close</button>
         </div>
-    {{/each}}
-</div>
+    </div>
 
+
+    <div id="song-container">
+        {{#each posts}}
+            <div class="card" id="{{this._id}}">
+                <img class="image" src="{{this.image_url}}" alt="{{this.song}}" onerror="this.src='images/vinyl.png'">
+                <h2 class="song">{{this.song}}</h2>
+                <p class="memory">{{this.memory}}</p>
+                {{#each this.authors}}
+                {{!-- <p class="author" author_id="{{this._id}}">By {{this.username}}</p> --}}
+                {{/each}}
+                {{!-- <p class="createdAt">{{this.createdAt}}</p> --}}
+                <br>
+                <h4>Comments:</h3>
+                {{#each this.comments}}
+                <p>{{this.content}}</p>
+                {{/each}}
+
+                <form class="comments_form">
+                    <input type="text" name="content" placeholder="Say something..." />
+                    <input type="submit" value="Submit Comment" />
+                </form>
+
+                <button class="edit_button">Edit</button>
+                <button class="delete_button">Delete</button>
+
+            </div>
+        {{/each}}
+    </div>
 </div>
