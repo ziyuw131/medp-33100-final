@@ -12,24 +12,27 @@
     <input type="submit" value="Add Song" />
 </form>
 
-{{#each posts}}
-<div class="song" >
-    <h2>{{this.song}}</h2>
-    <p>{{this.memory}}</p>
-    {{#each this.authors}}
-    <p>By {{this.username}}</p>
-    {{/each}}
-    <p>On {{this.createdAt}}</p>
-    <h3>Comments</h3>
-    {{#each this.comments}}
-    <p>{{this.content}}</p>
-    {{/each}}
+<div id="song-container">
+    {{#each posts}}
+    <div class="song" >
+        <img class="image" src="images/vinyl.png" alt="vinyl" width="250" height="250">
+        <h2>{{this.song}}</h2>
+        <p>{{this.memory}}</p>
+        {{#each this.authors}}
+        <p>By {{this.username}}</p>
+        {{/each}}
+        <p>On {{this.createdAt}}</p>
+        <h3>Comments</h3>
+        {{#each this.comments}}
+        <p>{{this.content}}</p>
+        {{/each}}
 
     <form class="comments_form">
         <input type="text" name="content" placeholder="Say something..." />
         <input type="submit" value="Submit Comment" />
     </form>
 
+    </div>
+    {{/each}}
 </div>
-{{/each}}
 

@@ -1,10 +1,10 @@
 body {
+  background-color: #70896C;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -12,17 +12,64 @@ a {
   color: #00B7FF;
 }
 
+h1 {
+  font-size: 40px;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+#song-container {
+  background-color: #f1f1f137;
+  border-radius: 20px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .song {
-  border: 1px solid black;
-  border-radius: 25px;
+  background-color: #F8EED4;
+  border-radius: 20px;
   padding: 20px;
+  width: 100%;
+  max-width: 250px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.image {
+  -webkit-animation:spin 10s linear infinite;
+  -moz-animation:spin 10s linear infinite;
+  animation:spin 10s linear infinite;
+}
+  @-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+  }
+  @-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+  }
+  @keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+  } 
 }
 
 #post_form {
-  border: 1px solid black;
-  border-radius: 25px;
+  background-color: #f1f1f137;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  box-sizing: border-box;
 }

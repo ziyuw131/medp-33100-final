@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log(formDataObject);
 
-        fetch('/posts', {
+        fetch('/songs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    const posts = document.querySelectorAll('.post');
-    posts.forEach(post => {
+    const songs = document.querySelectorAll('.post');
+    songs.forEach(post => {
         const commentsForm = post.querySelector('.comments_form');
         commentsForm.addEventListener('submit', (e) => {
             e.preventDefault();
