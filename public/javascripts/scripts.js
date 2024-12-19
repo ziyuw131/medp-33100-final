@@ -4,30 +4,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.getElementById("main-content");
 
     introScreen.addEventListener("click", () => {
-      introScreen.style.display = "none"; // Hide the intro screen
-      mainContent.style.display = "block"; // Show the main content
+        introScreen.style.display = "none"; // Hide the intro screen
+        mainContent.style.display = "block"; // Show the main content
     });
     
     const openPopupButton = document.getElementById("open-popup");
     const popupModal = document.getElementById("popup-modal");
     const closePopupButton = document.getElementById("close-popup");
 
-    // Show popup form when the button is clicked
     openPopupButton.addEventListener("click", () => {
         popupModal.classList.add("visible");
     });
 
-    // Close popup form when the close button is clicked
     closePopupButton.addEventListener("click", () => {
         popupModal.classList.remove("visible");
     });
 
-    // Optional: Close popup if the user clicks outside the popup content
-    popupModal.addEventListener("click", (e) => {
-        if (e.target === popupModal) {
-            popupModal.classList.remove("visible");
-        }
+    // Filtering functionality
+    const filterButtons = document.querySelectorAll('.filter-button');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filterType = button.getAttribute('data-tag'); // Get the filter type
+            sortSongs(filterType); // Apply the sorting
+        });
     });
+
+    // Function to sort songs
+    function sortSongs(filterType) {
+        const songContainer = document.getElementById('song-container'); // Define songContainer
+
+        const songs = Array.from(songContainer.querySelectorAll('.card')); // Convert NodeList to Array
+
+        if (filterType === 'rock') {
+            // Sort alphabetically (A-Z)
+            songs.sort((a, b) => {
+                const titleA = a.querySelector('.song').innerText.toLowerCase();
+                const titleB = b.querySelector('.song').innerText.toLowerCase();
+                return titleA.localeCompare(titleB);
+            });
+        } else if (filterType === 'chill') {
+            // Sort reverse alphabetically (Z-A)
+            songs.sort((a, b) => {
+                const titleA = a.querySelector('.song').innerText.toLowerCase();
+                const titleB = b.querySelector('.song').innerText.toLowerCase();
+                return titleB.localeCompare(titleA);
+            });
+        }
+
+        // Clear the container and reattach the sorted elements
+        songContainer.innerHTML = '';
+        songs.forEach(song => songContainer.appendChild(song));
+    }
 
     document.querySelector('#post_form')?.addEventListener('submit', (e) => {
         e.preventDefault();

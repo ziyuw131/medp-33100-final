@@ -12,6 +12,11 @@
         <button id="open-popup" class="corner-button">Add a Song</button>
     </div>
 
+     <div id="filter_section">
+        <button class="filter-button" data-tag="rock">A-Z</button>
+        <button class="filter-button" data-tag="chill">Z-A</button>
+    </div>
+
     <div id="popup-modal" class="hidden">
         <div id="popup-content">
             <form id="post_form">
@@ -23,14 +28,15 @@
                 <input type="text" name="song" placeholder="Song Name - Artist" />
                 <input type="text" name="image_url" placeholder="Optional: Image Url" />
                 <input type="text" name="memory" placeholder="Describe your memory associated with this song, good or bad..." />
-                <input type="text" name="name" placeholder="Your name" />
                 <input type="submit" value="Add Song" />
             </form>
             <button id="close-popup" class="close-button">Close</button>
         </div>
     </div>
 
+   
 
+    <!-- Song Container -->
     <div id="song-container">
         {{#each posts}}
             <div class="card" id="{{this._id}}">
