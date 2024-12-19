@@ -84,6 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             song.appendChild(saveButton);
         })
+
+        const deleteButton = song.querySelector('.delete_button');
+        deleteButton.addEventListener('click', async () => {
+            deleteSong(song.id);
+        })
     })
 });
 
@@ -94,5 +99,16 @@ async function updateSong(updatedSong) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(updatedSong)
+    })
+}
+
+
+async function deleteSong(songID) {
+    fetch('/songs/' + songID, {
+        method: 'DELETE',
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        // body: JSON.stringify(updatedSong)
     })
 }

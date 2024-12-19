@@ -37,6 +37,20 @@ router.put('/', async function (req, res) {
                 {_id: new ObjectId(req.body.songID)},
                 { $set: {memory: req.body.memory}}
             );
+        res.send('Successfully updated')
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+router.delete('/:id', async function (req, res) {
+    console.log(req.params.id);
+    try {
+        const db = req.app.locals.db;
+
+        await db.collection('songs')
+            .deleteOne({_id: new ObjectId(req.params.id)})
+        res.send('Successfully deleted')
     } catch (error) {
         console.log(error);
     }
