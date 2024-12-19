@@ -18,14 +18,14 @@
 
 <div id="song-container">
     {{#each posts}}
-        <div class="song" id="{{this._id}}">
+        <div class="card" id="{{this._id}}">
             <img class="image" src="{{this.image_url}}" alt="{{this.song}}" onerror="this.src='images/vinyl.png'">
-            <h2>{{this.song}}</h2>
-            <p>{{this.memory}}</p>
+            <h2 class="song">{{this.song}}</h2>
+            <p class="memory">{{this.memory}}</p>
             {{#each this.authors}}
-            <p>By {{this.username}}</p>
+            <p class="author" author_id="{{this._id}}">By {{this.username}}</p>
             {{/each}}
-            <p>On {{this.createdAt}}</p>
+            <p class="createdAt">{{this.createdAt}}</p>
             <h3>Comments</h3>
             {{#each this.comments}}
             <p>{{this.content}}</p>
@@ -35,6 +35,8 @@
                 <input type="text" name="content" placeholder="Say something..." />
                 <input type="submit" value="Submit Comment" />
             </form>
+
+            <button class="edit_button">Edit</button>
         </div>
     {{/each}}
 </div>

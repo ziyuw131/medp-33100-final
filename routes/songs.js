@@ -26,4 +26,20 @@ router.post('/', async function (req, res) {
     }
 })
 
+router.put('/', async function (req, res) {
+    console.log('MAKING PUT REQUEST')
+    console.log(req.body);
+    try {
+        const db = req.app.locals.db;
+
+        await db.collection('songs')
+            .updateOne(
+                {_id: new ObjectId(req.body.songID)},
+                { $set: {memory: req.body.memory}}
+            );
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 module.exports = router;
