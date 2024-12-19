@@ -3,8 +3,6 @@
 {{!-- <button class="cta-btn" id="open">Sign Up</button> --}}
 
 
-
-
 <form id="post_form">
     <p>
         Think of a song that has a specific meaning to you.
@@ -20,7 +18,7 @@
 
 <div id="song-container">
     {{#each posts}}
-        <div class="song">
+        <div class="song" id="{{this._id}}">
             <img class="image" src="{{this.image_url}}" alt="{{this.song}}" onerror="this.src='images/vinyl.png'">
             <h2>{{this.song}}</h2>
             <p>{{this.memory}}</p>

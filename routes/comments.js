@@ -11,7 +11,7 @@ router.post('/', async function (req, res) {
     try {
         const db = req.app.locals.db;
         const newComment = {
-            // songID: new ObjectId(req.body.songID),
+            songID: new ObjectId(req.body.songID),
             content: req.body.content,
             authorID: new ObjectId(req.body.authorID),
             createdAt: new Timestamp({ t: Math.floor(Date.now() / 1000), i: 0 }),
