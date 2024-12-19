@@ -1,10 +1,22 @@
+/* Global Styles */
+body {
+  background-color: rgb(77, 24, 24);
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+/* Intro Screen */
 #intro-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  background-color: rgb(77, 24, 24);
   color: white;
   display: flex;
   flex-direction: column;
@@ -24,37 +36,16 @@
   font-size: 24px;
 }
 
+/* Main Content */
 #main-content {
   display: none; /* Hidden initially */
-}
-
-
-body {
-  background-color: #70896C;
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 0 auto;
-}
-
-a {
-  color: #00B7FF;
 }
 
 h1 {
   font-size: 40px;
   text-align: center;
-}
-
-title {
-  font: 40px "Lucida Grande", Helvetica, Arial, sans-serif;
-
-}
-
-h2 {
-  text-align: center;
+  color: white;
+  margin: 0;
 }
 
 .corner-button-container {
@@ -85,7 +76,7 @@ h2 {
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  margin-top: 10px; /* Add spacing between popup button and filter buttons */
+  margin-top: 10px;
   transition: background-color 0.3s ease;
 }
 
@@ -95,16 +86,18 @@ h2 {
 
 #filter_section {
   text-align: left;
-  margin: 20px 25px;}
+  margin: 20px 25px;
+}
 
+/* Popup Modal */
 #popup-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Dim background */
-  display: none; /* Hidden initially */
+  background-color: rgba(0, 0, 0, 0.8); 
+  display: none; 
   align-items: center;
   justify-content: center;
   z-index: 1000;
@@ -139,7 +132,6 @@ h2 {
   background-color: #6b5050a0;
 }
 
-
 .memory {
   text-align: center;
 }
@@ -157,15 +149,13 @@ h2 {
 }
 
 .card {
-  background-color: #F8EED4;
+  background-color: #d8c8a0;
   border-radius: 20px;
   padding: 20px;
   width: 100%;
   max-width: 350px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  
 }
-
 
 .image {
   display: block;
@@ -180,19 +170,7 @@ h2 {
   animation: spin 10s linear infinite;
 }
 
-  @-moz-keyframes spin { 
-    100% { -moz-transform: rotate(360deg); } 
-  }
-  @-webkit-keyframes spin { 
-    100% { -webkit-transform: rotate(360deg); } 
-  }
-  @keyframes spin { 
-    100% { 
-        -webkit-transform: rotate(360deg); 
-        transform:rotate(360deg); 
-  } 
-}
-
+/* Form and Buttons */
 #post_form {
   background-color: #f1f1f137;
   border-radius: 20px;
@@ -244,3 +222,97 @@ button.edit_button:hover, button.delete_button:hover {
   background-color: #6b505061;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  #intro-screen h1 {
+    font-size: 40px;
+  }
+
+  #intro-screen p {
+    font-size: 18px;
+  }
+
+  .corner-button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  .filter-button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  #song-container {
+    grid-template-columns: 1fr; /* Stack cards on small screens */
+    padding: 20px;
+  }
+
+  .card {
+    max-width: 90%;
+    margin: 10px auto;
+  }
+
+  .image {
+    width: 150px;
+    height: 150px;
+  }
+
+  #post_form {
+    padding: 20px;
+  }
+
+  input[type="text"], input[type="submit"] {
+    font-size: 14px;
+  }
+
+  button.edit_button, button.delete_button {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  #intro-screen h1 {
+    font-size: 32px;
+  }
+
+  #intro-screen p {
+    font-size: 16px;
+  }
+
+  .corner-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .filter-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  #song-container {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .card {
+    max-width: 100%;
+    margin: 5px auto;
+  }
+
+  .image {
+    width: 120px;
+    height: 120px;
+  }
+
+  #post_form {
+    padding: 10px;
+  }
+
+  input[type="text"], input[type="submit"] {
+    font-size: 12px;
+  }
+
+  button.edit_button, button.delete_button {
+    font-size: 10px;
+  }
+}
