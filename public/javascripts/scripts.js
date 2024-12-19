@@ -9,11 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const formDataObject = {
             song: formData.get('song'),
+            image_url: formData.get('image_url'),
             memory: formData.get('memory'),
             authorID: '675b554ed8f2c5f28005c51c'
         };
 
-        console.log(formDataObject);
+        console.log('Form Data:', formDataObject);
 
         fetch('/songs', {
             method: 'POST',
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify(formDataObject)
         })
     })
+    
 
     const songs = document.querySelectorAll('.post');
     songs.forEach(post => {

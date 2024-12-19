@@ -2,11 +2,12 @@
 
 <form id="post_form">
     <p>
-    Think of a song that has a specific meaning to you.
-    Why did you choose it?
-    Add it!
+        Think of a song that has a specific meaning to you.
+        Why did you choose it?
+        Add it!
     </p>
-    <input type="text" name="song" placeholder="Song Name" />
+    <input type="text" name="song" placeholder="Song Name - Artist" />
+    <input type="text" name="image_url" placeholder="Image Url" />
     <input type="text" name="memory" placeholder="Describe your memory associated with this song, good or bad..." />
     <input type="text" name="name" placeholder="Your name" />
     <input type="submit" value="Add Song" />
@@ -14,25 +15,23 @@
 
 <div id="song-container">
     {{#each posts}}
-    <div class="song" >
-        <img class="image" src="images/vinyl.png" alt="vinyl" width="250" height="250">
-        <h2>{{this.song}}</h2>
-        <p>{{this.memory}}</p>
-        {{#each this.authors}}
-        <p>By {{this.username}}</p>
-        {{/each}}
-        <p>On {{this.createdAt}}</p>
-        <h3>Comments</h3>
-        {{#each this.comments}}
-        <p>{{this.content}}</p>
-        {{/each}}
+        <div class="song">
+            <img class="image" src="{{this.image_url}}" alt="{{this.song}}" onerror="this.src='images/vinyl.png'">
+            <h2>{{this.song}}</h2>
+            <p>{{this.memory}}</p>
+            {{#each this.authors}}
+            <p>By {{this.username}}</p>
+            {{/each}}
+            <p>On {{this.createdAt}}</p>
+            <h3>Comments</h3>
+            {{#each this.comments}}
+            <p>{{this.content}}</p>
+            {{/each}}
 
-    <form class="comments_form">
-        <input type="text" name="content" placeholder="Say something..." />
-        <input type="submit" value="Submit Comment" />
-    </form>
-
-    </div>
+            <form class="comments_form">
+                <input type="text" name="content" placeholder="Say something..." />
+                <input type="submit" value="Submit Comment" />
+            </form>
+        </div>
     {{/each}}
 </div>
-

@@ -13,6 +13,7 @@ router.post('/', async function (req, res) {
         const db = req.app.locals.db;
         const newPost = {
             song: req.body.song,
+            image_url: req.body.image_url,
             memory: req.body.memory,
             authorID: new ObjectId(req.body.authorID),
             createdAt: new Timestamp({ t: Math.floor(Date.now() / 1000), i: 0 }),

@@ -44,10 +44,18 @@ h2 {
 
 
 .image {
-  -webkit-animation:spin 10s linear infinite;
-  -moz-animation:spin 10s linear infinite;
-  animation:spin 10s linear infinite;
+  display: block;
+  width: 250px;          /* Fixes the width */
+  height: 250px;         /* Fixes the height */
+  border-radius: 50%;    /* Keeps the circular shape */
+  object-fit: cover;     /* Ensures the image fills the container proportionally */
+  overflow: hidden;      /* Prevents content overflow */
+  margin: 0 auto;        /* Centers the image inside its container */
+  -webkit-animation: spin 10s linear infinite;
+  -moz-animation: spin 10s linear infinite;
+  animation: spin 10s linear infinite;
 }
+
   @-moz-keyframes spin { 
     100% { -moz-transform: rotate(360deg); } 
   }
