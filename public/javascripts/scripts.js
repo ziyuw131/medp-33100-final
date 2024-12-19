@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    const introScreen = document.getElementById("intro-screen");
+    const mainContent = document.getElementById("main-content");
+
+    introScreen.addEventListener("click", () => {
+      introScreen.style.display = "none"; // Hide the intro screen
+      mainContent.style.display = "block"; // Show the main content
+    });
+    
     document.querySelector('#post_form')?.addEventListener('submit', (e) => {
         e.preventDefault();
         console.log('Form submitted');
