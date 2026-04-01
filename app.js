@@ -11,8 +11,20 @@ var commentsRouter = require("./routes/comments");
 
 var app = express();
 
-/* NO DATABASE CONNECTION (SAFE MODE) */
-app.locals.db = null;
+/* SAFE MODE: NO REAL DATABASE */
+app.locals.db = {
+  collection: () => ({
+    insertOne: async () => {
+      console.log("Mock insertOne called (DB disabled)");
+    },
+    updateOne: async () => {
+      console.log("Mock updateOne called (DB disabled)");
+    },
+    deleteOne: async () => {
+      console.log("Mock deleteOne called (DB disabled)");
+    },
+  }),
+};
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
