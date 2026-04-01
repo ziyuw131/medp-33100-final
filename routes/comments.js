@@ -3,12 +3,17 @@ var router = express.Router();
 
 /* GET comments */
 router.get("/", function (req, res) {
-  res.send("Comments route is running (Mongo disabled)");
+  res.send("Comments route is working");
 });
 
-/* POST comment (disabled) */
+/* POST comments (SAFE) */
 router.post("/", function (req, res) {
-  res.send("POST comments disabled (no database connected)");
+  console.log(req.body);
+
+  res.json({
+    message: "Comment received (safe mode)",
+    data: req.body,
+  });
 });
 
 module.exports = router;

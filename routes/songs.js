@@ -1,24 +1,20 @@
 var express = require("express");
 var router = express.Router();
 
-/* GET songs page */
 router.get("/", function (req, res) {
-  res.send("Songs route is running (Mongo disabled)");
+  res.send("Songs route is working");
 });
 
-/* CREATE (disabled) */
 router.post("/", function (req, res) {
-  res.send("POST disabled (no database connected)");
+  res.send("POST songs received (safe mode)");
 });
 
-/* UPDATE (disabled) */
 router.put("/", function (req, res) {
-  res.send("PUT disabled (no database connected)");
+  res.send("PUT songs received (safe mode)");
 });
 
-/* DELETE (disabled) */
 router.delete("/:id", function (req, res) {
-  res.send("DELETE disabled (no database connected)");
+  res.send("DELETE songs received (safe mode)");
 });
 
 module.exports = router;
