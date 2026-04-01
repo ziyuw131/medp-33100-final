@@ -1,27 +1,14 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-const {ObjectId, Timestamp} = require('mongodb');
 
-router.get('/', function (req, res, next) {
-    res.send('respond with a resource');
+/* GET comments */
+router.get("/", function (req, res) {
+  res.send("Comments route is running (Mongo disabled)");
 });
 
-router.post('/', async function (req, res) {
-    console.log(req.body);
-    try {
-        const db = req.app.locals.db;
-        const newComment = {
-            songID: new ObjectId(req.body.songID),
-            content: req.body.content,
-            authorID: new ObjectId(req.body.authorID),
-            createdAt: new Timestamp({ t: Math.floor(Date.now() / 1000), i: 0 }),
-        }
-        await db.collection('comments')
-            .insertOne(newComment)
-        res.send('Successfully created comment');
-    } catch(error) {
-        console.log(error);
-    }
-})
+/* POST comment (disabled) */
+router.post("/", function (req, res) {
+  res.send("POST comments disabled (no database connected)");
+});
 
 module.exports = router;
