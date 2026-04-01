@@ -1,59 +1,24 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-const {ObjectId, Timestamp} = require('mongodb');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+/* GET songs page */
+router.get("/", function (req, res) {
+  res.send("Songs route is running (Mongo disabled)");
 });
 
-router.post('/', async function (req, res) {
-    console.log(req.body);
-    try {
-        const db = req.app.locals.db;
-        const newPost = {
-            song: req.body.song,
-            image_url: req.body.image_url,
-            memory: req.body.memory,
-            authorID: new ObjectId(req.body.authorID),
-            createdAt: new Timestamp({ t: Math.floor(Date.now() / 1000), i: 0 }),
-        }
-        await db.collection('songs')
-            .insertOne(newPost)
-        res.send('Successfully created post');
-    } catch(error) {
-        console.log(error);
-    }
-})
+/* CREATE (disabled) */
+router.post("/", function (req, res) {
+  res.send("POST disabled (no database connected)");
+});
 
-router.put('/', async function (req, res) {
-    console.log('MAKING PUT REQUEST')
-    console.log(req.body);
-    try {
-        const db = req.app.locals.db;
+/* UPDATE (disabled) */
+router.put("/", function (req, res) {
+  res.send("PUT disabled (no database connected)");
+});
 
-        await db.collection('songs')
-            .updateOne(
-                {_id: new ObjectId(req.body.songID)},
-                { $set: {memory: req.body.memory}}
-            );
-        res.send('Successfully updated')
-    } catch (error) {
-        console.log(error);
-    }
-})
-
-router.delete('/:id', async function (req, res) {
-    console.log(req.params.id);
-    try {
-        const db = req.app.locals.db;
-
-        await db.collection('songs')
-            .deleteOne({_id: new ObjectId(req.params.id)})
-        res.send('Successfully deleted')
-    } catch (error) {
-        console.log(error);
-    }
-})
+/* DELETE (disabled) */
+router.delete("/:id", function (req, res) {
+  res.send("DELETE disabled (no database connected)");
+});
 
 module.exports = router;
